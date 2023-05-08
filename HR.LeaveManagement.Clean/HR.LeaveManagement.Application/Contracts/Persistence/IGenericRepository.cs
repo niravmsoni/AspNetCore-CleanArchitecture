@@ -9,7 +9,7 @@ namespace HR.LeaveManagement.Application.Contracts.Persistence
     //Generic CRUD which are going to be required by all domain
     public interface IGenericRepository<T> where T : class
     {
-        Task<T> GetAsync();
+        Task<List<T>> GetAsync();
 
         Task<T> GetByIdAsync(int id);
 
