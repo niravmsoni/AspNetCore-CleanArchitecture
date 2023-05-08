@@ -6,6 +6,6 @@ namespace HR.LeaveManagement.Application.Contracts.Persistence
     //All generic CRUD methods would inherit from IGenericRepository
     public interface ILeaveTypeRepository : IGenericRepository<LeaveType>
     {
-
+        Task<bool> IsLeaveTypeUnique(string name);
     }
 }

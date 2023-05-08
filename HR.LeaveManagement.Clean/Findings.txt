@@ -24,3 +24,17 @@ Use:
 	For ex: Primary DB does the writes & read ops come from Read Replica etc.
 	
 	Promotes THIN CONTROLLERS. Business Logic moved to HANDLERS
+	
+	
+FluentValidations
+Packages used:
+	- FluentValidation
+	- FluentValidation.DependencyInjectionExtensions
+	
+Use:
+	- Perform validations against DTOs
+	- Uses BuilderPattern to extend validations
+	- For a particular property, we can specify rules
+	- It has a lot of built-in validation checks like .NotEmpty(), .NotNull() etc.
+	- If needed, we can write our own custom validations as well.
+		For ex: If we want to add a check that while creating a leave, we want to ensure LeaveName is unique(LeaveName entered while creating does not match with any existing leavename present in DB)?, we can do it
