@@ -15,7 +15,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{5C1D3180-6490-45A6-9692-9CD5B218DE62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Domain", "HR.LeaveManagement.Domain\HR.LeaveManagement.Domain.csproj", "{B7D6E78D-8B2A-42F5-9D44-CA5C433B7C68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HR.LeaveManagement.Domain", "HR.LeaveManagement.Domain\HR.LeaveManagement.Domain.csproj", "{B7D6E78D-8B2A-42F5-9D44-CA5C433B7C68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HR.LeaveManagement.Application", "HR.LeaveManagement.Application\HR.LeaveManagement.Application.csproj", "{3AB525BF-0C93-40ED-9DDE-4471130FD5E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6217127B-5637-456E-8E75-168A8F09039B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +34,10 @@ Global
 		{B7D6E78D-8B2A-42F5-9D44-CA5C433B7C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7D6E78D-8B2A-42F5-9D44-CA5C433B7C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7D6E78D-8B2A-42F5-9D44-CA5C433B7C68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +48,7 @@ Global
 		{60D5BDB9-222D-4B1B-8B48-FB49733F9106} = {65244168-9F8C-4CC5-BA19-33F127AFBFA2}
 		{5C1D3180-6490-45A6-9692-9CD5B218DE62} = {65244168-9F8C-4CC5-BA19-33F127AFBFA2}
 		{B7D6E78D-8B2A-42F5-9D44-CA5C433B7C68} = {1212CF4B-30A1-4443-A5A5-CBFEC81716E1}
+		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5} = {1212CF4B-30A1-4443-A5A5-CBFEC81716E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BAA6AA54-1675-4AEC-BE0C-3FADBC50666D}

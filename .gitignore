@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/HR.LeaveManagement.Clean/.vs
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Application/bin/Debug/net6.0

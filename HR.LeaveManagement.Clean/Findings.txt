@@ -2,7 +2,25 @@ Project Setup
 
 
 AutoMapper
+Packages used:
+	- AutoMapper
+	- AutoMapper.Extensions.Microsoft.DependencyInjection
+	
+Use:
 	- Used when we do not want to pass around domain entity around in our application. 
 	- Create DTO that models from entity.
 		Read from DB - Data from DB is fed to DTO & using automapper, DTO maps to Model which is passed to View
 		Save to DB - Model passed from view is fed to DTO using autoMapper and DTO is used to save to DB
+		
+CQRS
+Packages used:
+	- MediatR
+Use:
+	Command Query Responsibility Segregation
+		Query = Read from DB
+		Command = Write to dB
+		
+	Per ideal implementation of pattern, we would have different data stores for read/write.
+	For ex: Primary DB does the writes & read ops come from Read Replica etc.
+	
+	Promotes THIN CONTROLLERS. Business Logic moved to HANDLERS
