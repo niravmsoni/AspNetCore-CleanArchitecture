@@ -46,3 +46,6 @@ Setting up EF:
 Package used:
 	Microsoft.EntityFrameworkCore.SqlServer
 	Microsoft.Extensions.Options.ConfigureExtensions
+	
+DBContext = Bridge between code and DB. Uses Connectionstring to mediate
+Flagship ORM from Microsoft
