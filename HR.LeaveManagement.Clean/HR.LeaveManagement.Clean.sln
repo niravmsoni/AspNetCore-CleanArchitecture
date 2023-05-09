@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR.LeaveManagement.Persistence", "HR.LeaveManagement.Persistence\HR.LeaveManagement.Persistence.csproj", "{6BACF898-3ACE-4CC6-AD43-B7E5E2FF3FB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BACF898-3ACE-4CC6-AD43-B7E5E2FF3FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BACF898-3ACE-4CC6-AD43-B7E5E2FF3FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BACF898-3ACE-4CC6-AD43-B7E5E2FF3FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BACF898-3ACE-4CC6-AD43-B7E5E2FF3FB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{5C1D3180-6490-45A6-9692-9CD5B218DE62} = {65244168-9F8C-4CC5-BA19-33F127AFBFA2}
 		{B7D6E78D-8B2A-42F5-9D44-CA5C433B7C68} = {1212CF4B-30A1-4443-A5A5-CBFEC81716E1}
 		{3AB525BF-0C93-40ED-9DDE-4471130FD5E5} = {1212CF4B-30A1-4443-A5A5-CBFEC81716E1}
+		{6BACF898-3ACE-4CC6-AD43-B7E5E2FF3FB1} = {60D5BDB9-222D-4B1B-8B48-FB49733F9106}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BAA6AA54-1675-4AEC-BE0C-3FADBC50666D}

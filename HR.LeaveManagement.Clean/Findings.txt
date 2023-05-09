@@ -1,5 +1,6 @@
 Project Setup
 
+Core Layer
 
 AutoMapper
 Packages used:
@@ -38,3 +39,10 @@ Use:
 	- It has a lot of built-in validation checks like .NotEmpty(), .NotNull() etc.
 	- If needed, we can write our own custom validations as well.
 		For ex: If we want to add a check that while creating a leave, we want to ensure LeaveName is unique(LeaveName entered while creating does not match with any existing leavename present in DB)?, we can do it
+		
+Infra Layer
+
+Setting up EF:
+Package used:
+	Microsoft.EntityFrameworkCore.SqlServer
+	Microsoft.Extensions.Options.ConfigureExtensions
