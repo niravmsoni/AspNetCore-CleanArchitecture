@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "VddZmDab+Upy8E4zp46xrsB/N/LvAJlNtWTxwf/zCeJ0sT/C5B8oUwdxfqRRiEyneDITIiwQ2ER2yIvKqSI1TA==",
+  "success": true,
+  "projectFilePath": "C:\\Data\\Pet Projects\\AspNetCore-CleanArchitecture\\HR.LeaveManagement.Clean\\HR.LeaveManagement.Infrastructure\\HR.LeaveManagement.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\sonin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
