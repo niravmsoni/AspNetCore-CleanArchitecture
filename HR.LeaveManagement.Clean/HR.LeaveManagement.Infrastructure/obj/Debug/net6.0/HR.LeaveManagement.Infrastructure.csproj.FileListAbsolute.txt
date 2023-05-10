@@ -10,3 +10,8 @@ C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.Le
 C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.Infrastructure\obj\Debug\net6.0\refint\HR.LeaveManagement.Infrastructure.dll
 C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.Infrastructure\obj\Debug\net6.0\HR.LeaveManagement.Infrastructure.pdb
 C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.Infrastructure\obj\Debug\net6.0\ref\HR.LeaveManagement.Infrastructure.dll
+C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.Infrastructure\bin\Debug\net6.0\HR.LeaveManagement.Application.dll
+C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.Infrastructure\bin\Debug\net6.0\HR.LeaveManagement.Domain.dll
+C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.Infrastructure\bin\Debug\net6.0\HR.LeaveManagement.Application.pdb
+C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.Infrastructure\bin\Debug\net6.0\HR.LeaveManagement.Domain.pdb
+C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.Infrastructure\obj\Debug\net6.0\HR.LeaveManagement.Infrastructure.csproj.CopyComplete

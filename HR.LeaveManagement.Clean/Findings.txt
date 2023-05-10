@@ -49,3 +49,12 @@ Package used:
 	
 DBContext = Bridge between code and DB. Uses Connectionstring to mediate
 Flagship ORM from Microsoft
+
+Setting up Email Service: SendGrid
+Package used:
+	SendGrid
+	
+Used Options Pattern here.
+Package required:
+	Microsoft.Extensions.Options.ConfigurationExtensions
+	
