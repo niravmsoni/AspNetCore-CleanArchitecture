@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tpvpYmZ9hxGMpEk5EcAnP5sKsGNCv9aFuWqztRX8Eq/1uyRPDYYK4CX3zQshQcwpIFaVUB8Qa231PBBRt6QY3g==",
+  "dgSpecHash": "QwkjO8+rbyxkSGHfYTOLD2HJYDsfjSW6g+h0p7PYOa1YKsbXyBxsxLgh0XlqCy4jOnim2bX4yYH75D4Jy5EGHg==",
   "success": true,
   "projectFilePath": "C:\\Data\\Pet Projects\\AspNetCore-CleanArchitecture\\HR.LeaveManagement.Clean\\HR.LeaveManagement.Infrastructure\\HR.LeaveManagement.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.0\\microsoft.extensions.configuration.binder.7.0.0.nupkg.sha512",
     "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\7.0.0\\microsoft.extensions.options.configurationextensions.7.0.0.nupkg.sha512",
     "C:\\Users\\sonin\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
