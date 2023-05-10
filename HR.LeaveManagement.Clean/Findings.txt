@@ -66,4 +66,19 @@ Starting with Web API:
 		InfrastructureServiceRegistration
 		PersistenceServiceRegistration etc.
 		
-	Since all are going to be used in API, 
+	Since all are going to be used in API, we need to call those extension methods from WebAPI's Program.cs
+	
+Scaffolding DBs:
+
+Package used(To WebAPI):
+	Microsoft.EntityFrameworkCore.Tools
+	
+	Now, open PackageManagerConsole and choose a correct default package
+	Our DB related code sits in Persistence project
+	When we run "Add-Migration", it will generate a folder namely Migration
+	A new migration will be added with whatever message we have. That class will have 2 methods : Up and Down.
+	Up -> Code to create new/update existing tables
+	Down -> Revert it
+	
+	Next command to actually execute the DB is to use "Update-Database"
+	Upon successful execution, EFCore will generate SQL statements
