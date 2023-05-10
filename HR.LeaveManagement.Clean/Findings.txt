@@ -58,3 +58,12 @@ Used Options Pattern here.
 Package required:
 	Microsoft.Extensions.Options.ConfigurationExtensions
 	
+	
+Starting with Web API:
+
+	All individual class libraries have extension methods defined:
+		ApplicationServiceRegistration
+		InfrastructureServiceRegistration
+		PersistenceServiceRegistration etc.
+		
+	Since all are going to be used in API, 

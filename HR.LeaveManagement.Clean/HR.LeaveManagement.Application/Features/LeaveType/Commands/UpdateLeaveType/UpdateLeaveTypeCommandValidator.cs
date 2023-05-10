@@ -34,7 +34,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.UpdateLeave
             this._leaveTypeRepository = leaveTypeRepository;
         }
 
-        private async Task<bool> LeaveTypeMustExist(int arg1, CancellationToken arg2)
+        private async Task<bool> LeaveTypeMustExist(int id, CancellationToken arg2)
         {
             var leaveType = await _leaveTypeRepository.GetByIdAsync(id);
             return leaveType != null;
