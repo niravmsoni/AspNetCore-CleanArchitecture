@@ -1,65 +1,64 @@
 Project Setup
 
 Core Layer
-
-AutoMapper
-Packages used:
-	- AutoMapper
-	- AutoMapper.Extensions.Microsoft.DependencyInjection
-	
-Use:
-	- Used when we do not want to pass around domain entity around in our application. 
-	- Create DTO that models from entity.
-		Read from DB - Data from DB is fed to DTO & using automapper, DTO maps to Model which is passed to View
-		Save to DB - Model passed from view is fed to DTO using autoMapper and DTO is used to save to DB
+	AutoMapper
+	Packages used:
+		- AutoMapper
+		- AutoMapper.Extensions.Microsoft.DependencyInjection
 		
-CQRS
-Packages used:
-	- MediatR
-Use:
-	Command Query Responsibility Segregation
-		Query = Read from DB
-		Command = Write to dB
+	Use:
+		- Used when we do not want to pass around domain entity around in our application. 
+		- Create DTO that models from entity.
+			Read from DB - Data from DB is fed to DTO & using automapper, DTO maps to Model which is passed to View
+			Save to DB - Model passed from view is fed to DTO using autoMapper and DTO is used to save to DB
+			
+	CQRS
+	Packages used:
+		- MediatR
+	Use:
+		Command Query Responsibility Segregation
+			Query = Read from DB
+			Command = Write to dB
+			
+		Per ideal implementation of pattern, we would have different data stores for read/write.
+		For ex: Primary DB does the writes & read ops come from Read Replica etc.
 		
-	Per ideal implementation of pattern, we would have different data stores for read/write.
-	For ex: Primary DB does the writes & read ops come from Read Replica etc.
-	
-	Promotes THIN CONTROLLERS. Business Logic moved to HANDLERS
-	
-	
-FluentValidations
-Packages used:
-	- FluentValidation
-	- FluentValidation.DependencyInjectionExtensions
-	
-Use:
-	- Perform validations against DTOs
-	- Uses BuilderPattern to extend validations
-	- For a particular property, we can specify rules
-	- It has a lot of built-in validation checks like .NotEmpty(), .NotNull() etc.
-	- If needed, we can write our own custom validations as well.
-		For ex: If we want to add a check that while creating a leave, we want to ensure LeaveName is unique(LeaveName entered while creating does not match with any existing leavename present in DB)?, we can do it
+		Promotes THIN CONTROLLERS. Business Logic moved to HANDLERS
+		
+		
+	FluentValidations
+	Packages used:
+		- FluentValidation
+		- FluentValidation.DependencyInjectionExtensions
+		
+	Use:
+		- Perform validations against DTOs
+		- Uses BuilderPattern to extend validations
+		- For a particular property, we can specify rules
+		- It has a lot of built-in validation checks like .NotEmpty(), .NotNull() etc.
+		- If needed, we can write our own custom validations as well.
+			For ex: If we want to add a check that while creating a leave, we want to ensure LeaveName is unique(LeaveName entered while creating does not match with any existing leavename present in DB)?, we can do it
 		
 Infra Layer
 
-Setting up EF:
-Package used:
-	Microsoft.EntityFrameworkCore.SqlServer
-	Microsoft.Extensions.Options.ConfigureExtensions
+	Setting up EF:
+	Package used:
+		Microsoft.EntityFrameworkCore.SqlServer
+		Microsoft.Extensions.Options.ConfigureExtensions
+		
+	DBContext = Bridge between code and DB. Uses Connectionstring to mediate
+	Flagship ORM from Microsoft
 	
-DBContext = Bridge between code and DB. Uses Connectionstring to mediate
-Flagship ORM from Microsoft
-
-Setting up Email Service: SendGrid
-Package used:
-	SendGrid
-	
-Used Options Pattern here.
-Package required:
-	Microsoft.Extensions.Options.ConfigurationExtensions
+	Setting up Email Service: SendGrid
+	Package used:
+		SendGrid
+		
+	Used Options Pattern here.
+	Package required:
+		Microsoft.Extensions.Options.ConfigurationExtensions
 	
 	
-Starting with Web API:
+API Layer:
 
 	All individual class libraries have extension methods defined:
 		ApplicationServiceRegistration
@@ -82,3 +81,6 @@ Package used(To WebAPI):
 	
 	Next command to actually execute the DB is to use "Update-Database"
 	Upon successful execution, EFCore will generate SQL statements
+
+	--SideNote - Issues faced while installing SQL Server 2019. Had a few bad deployments due to errors while starting up
+	--Resolved by following this link - https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/database-file-operations/troubleshoot-os-4kb-disk-sector-size
