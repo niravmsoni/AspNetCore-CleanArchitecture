@@ -84,3 +84,11 @@ Package used(To WebAPI):
 
 	--SideNote - Issues faced while installing SQL Server 2019. Had a few bad deployments due to errors while starting up
 	--Resolved by following this link - https://learn.microsoft.com/en-us/troubleshoot/sql/database-engine/database-file-operations/troubleshoot-os-4kb-disk-sector-size
+	
+	
+	Creating the controller
+	When we inject the mediator, it will automatically find the handler using the TRequest we use.
+	var leaveTypes = await _mediator.Send(new GetLeaveTypesQuery());
+	When we write above line mediator finds the handler that takes in GetLeaveTypesQuery object and returns the TResponse object
+	
+	            

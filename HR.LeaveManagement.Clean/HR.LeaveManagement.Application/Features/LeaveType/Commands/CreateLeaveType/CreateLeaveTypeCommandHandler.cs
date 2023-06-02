@@ -29,7 +29,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveT
             var validator = new CreateLeaveTypeCommandValidator(_leaveTypeRepository);
             var validationResult = await validator.ValidateAsync(request);
 
-            if (!validationResult.Errors.Any())
+            if (validationResult.Errors.Any())
             {
                 //All validation failures will be present in validationResult.Error.
                 //Passing them to BadRequestException
