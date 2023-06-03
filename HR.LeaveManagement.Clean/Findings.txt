@@ -104,3 +104,19 @@ Package used(To WebAPI):
 	Created a middleware and injected in HTTP request pipeline.
 	Also created a CustomProblemDetails that inherits from ProblemDetails & added a custom property there namely Errors
 	Also, handled scenario in the middleware
+	
+Section#7 - Testing:
+	Cover unit and integration tests
+	XUnit, Moq, Shouldly
+
+	Added unit test project.
+	Project type: xUnit
+	Packages:
+		Moq
+		Shouldly
+		
+		Other added by default when we created xUnit project:
+		coverlet.collector
+		Microsoft.NET.Test.Sdk
+		xunit
+		xunit.runner.visualstudio
