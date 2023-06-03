@@ -91,4 +91,9 @@ Package used(To WebAPI):
 	var leaveTypes = await _mediator.Send(new GetLeaveTypesQuery());
 	When we write above line mediator finds the handler that takes in GetLeaveTypesQuery object and returns the TResponse object
 	
+	
+	When working with Validators, if we have some common validators that are required in two or more commands/queries etc.,
+	we can create a baseValidator and include then in the child validators using Include() keyword.
+	
+	Refer BaseLeaveRequestValidator
 	            
