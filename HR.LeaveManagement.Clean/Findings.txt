@@ -97,3 +97,10 @@ Package used(To WebAPI):
 	
 	Refer BaseLeaveRequestValidator
 	            
+	Global Error Handling
+	Since we have a lot of different custom types of exception, we need to have a central place to handle them and return the correct status back
+	That's where middleware come into action
+	
+	Created a middleware and injected in HTTP request pipeline.
+	Also created a CustomProblemDetails that inherits from ProblemDetails & added a custom property there namely Errors
+	Also, handled scenario in the middleware
