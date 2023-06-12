@@ -236,3 +236,13 @@ Section#8
 			@code Ctrl+. and backend code will move to separate partial class.
 			
 			Then, as compared to constructor injection, with blazor, we inject our services with [Inject] keyword
+			
+Section#9 - Securing API and UI
+Added new project in Infrastructure folder:
+	Project type:Class Library
+	Packages:
+		Microsoft.AspNetCore.Identity
+		Microsoft.AspNetCore.Identity.EntityFrameworkCore
+		Microsoft.EntityFrameworkCore.SqlServer
+		Microsoft.EntityFrameworkCore.Tools
+		Microsoft.Extensions.Options.ConfigurationExtensions
