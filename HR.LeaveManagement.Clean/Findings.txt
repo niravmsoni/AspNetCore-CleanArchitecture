@@ -106,6 +106,12 @@ Package used(To WebAPI):
 	Also, handled scenario in the middleware
 	
 Section#7 - Testing:
+	Write Automated Tests:
+		Validate code operates as expected
+		Tests known or expected outcomes
+		Best implemented when code is clean & modular
+		Easier to accomplish when code is loosely coupled
+
 	Cover unit and integration tests
 	XUnit, Moq, Shouldly
 	
@@ -133,8 +139,12 @@ Section#7 - Testing:
 			
 			Ideally -> Better to just add Tests keyword against the class we're testing against
 		
+		XUnit test types:
+			Fact - Straight forward testing
+			Theory - Provide inline data and do conditional tests
+			
 	Integration tests:
-		Validate 3rd party integrations
+		Validate behaviors of 3rd party frameworks and technologies
 			- For ex: EFCore is our app's integration to DB
 			
 	Added unit test project.
