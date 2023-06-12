@@ -221,3 +221,12 @@ Section#8
 		So, then, for each feature in our API i.e. LeaveType, LeaveAllocation and LeaveRequest, we're going to use strongly typed client
 		We're going to create 3 contracts ILeaveAllocationService, ILeaveRequestService and ILeaveTypeService and under services,
 		we're going to create their respective services. Inherit BaseHttpService and implement their respective contracts
+		
+		Setting up LeaveTypeManagement services
+		If we examine ServiceClient, then it has auto-generated code. 
+		That auto-generated code has automatically generated the DTOs that are being returned from the API copied over here as-well
+		F12 on LeaveAllocationDetailsDto in ServiceClient.cs.
+		For consuming this information on UI, we can:
+			a. Either use this DTOs straight up in our pages. But this leads to problem. If DTO/Contract/API response changes, our code on client side will also break.
+			b. Create view models locally to UI project. Lengthier but better. We can even put down our own validations on these view models using DataAnnotations. For ex: Required, Display name, MaxLength etc.
+				This adds another layer of validation kinda like client side validations
