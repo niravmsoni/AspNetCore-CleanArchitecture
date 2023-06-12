@@ -108,21 +108,42 @@ Package used(To WebAPI):
 Section#7 - Testing:
 	Cover unit and integration tests
 	XUnit, Moq, Shouldly
+	
+	Tests typically consists of 3A's
+		Arrange
+		Act
+		Assert
 
+	Unit Tests:
+		Added unit test project.
+		Project type: xUnit
+		Packages:
+			Moq
+			Shouldly
+			
+			Other added by default when we created xUnit project:
+			coverlet.collector
+			Microsoft.NET.Test.Sdk
+			xunit
+			xunit.runner.visualstudio
+			
+		Why use mocks?
+			For actual application, we'd be using DI to resolve the interfaces and maybe connect to DB or do calls to external endpoints
+			However for unit tests, we do not need those actuals to work. Hence we use mocks of those typess
+			
+			Ideally -> Better to just add Tests keyword against the class we're testing against
+		
+	Integration tests:
+		Validate 3rd party integrations
+			- For ex: EFCore is our app's integration to DB
+			
 	Added unit test project.
 	Project type: xUnit
 	Packages:
 		Moq
 		Shouldly
-		
-		Other added by default when we created xUnit project:
-		coverlet.collector
-		Microsoft.NET.Test.Sdk
-		xunit
-		xunit.runner.visualstudio
-		
-	Why use mocks?
-		For actual application, we'd be using DI to resolve the interfaces and maybe connect to DB or do calls to external endpoints
-		However for unit tests, we do not need those actuals to work. Hence we use mocks of those typess
-		
-		Ideally -> Better to just add Tests keyword against the class we're testing against
+		Microsoft.EntityFrameworkCore.InMemory
+			
+	Why use EFCore.InMemory?
+		It's a DB provider for EFCore to be used ONLY for testing purposes
+		Just to simulate test DB in memory for writing tests
