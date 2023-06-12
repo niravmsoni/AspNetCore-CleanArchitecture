@@ -230,3 +230,9 @@ Section#8
 			a. Either use this DTOs straight up in our pages. But this leads to problem. If DTO/Contract/API response changes, our code on client side will also break.
 			b. Create view models locally to UI project. Lengthier but better. We can even put down our own validations on these view models using DataAnnotations. For ex: Required, Display name, MaxLength etc.
 				This adds another layer of validation kinda like client side validations
+				
+			Added new pages for LeaveType in BlazorUI project.
+			We can keep razor and .NET Code in single file, but its recommended to keep it separate.
+			@code Ctrl+. and backend code will move to separate partial class.
+			
+			Then, as compared to constructor injection, with blazor, we inject our services with [Inject] keyword

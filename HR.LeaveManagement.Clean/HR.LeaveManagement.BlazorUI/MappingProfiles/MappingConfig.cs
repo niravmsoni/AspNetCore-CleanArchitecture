@@ -8,7 +8,7 @@ namespace HR.LeaveManagement.BlazorUI.MappingProfiles
     {
         public MappingConfig()
         {
-            CreateMap<LeaveTypeDetailsDto, LeaveTypeVM>().ReverseMap();
+            CreateMap<LeaveTypeDto, LeaveTypeVM>().ReverseMap();
             CreateMap<CreateLeaveTypeCommand, LeaveTypeVM>().ReverseMap();
             CreateMap<UpdateLeaveTypeCommand, LeaveTypeVM>().ReverseMap();
         }
