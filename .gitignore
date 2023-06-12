@@ -11,3 +11,13 @@
 /HR.LeaveManagement.Clean/HR.LeaveManagement.Persistence/obj/Debug/net6.0/HR.LeaveManagement.Persistence.dll
 /HR.LeaveManagement.Clean/HR.LeaveManagement.Persistence/obj/Debug/net6.0/HR.LeaveManagement.Persistence.pdb
 /HR.LeaveManagement.Clean/HR.LeaveManagement.Persistence/obj/Debug/net6.0/HR.LeaveManagement.Persistence.csproj.CoreCompileInputs.cache
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Api/obj
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Api/bin/Debug/net6.0
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Application/obj
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Application.UnitTests/obj
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Application.UnitTests/bin/Debug/net6.0
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Domain/obj
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Domain/bin/Debug/net6.0
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Infrastructure/obj
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Infrastructure/bin/Debug/net6.0
+/HR.LeaveManagement.Clean/HR.LeaveManagement.Persistence/obj
