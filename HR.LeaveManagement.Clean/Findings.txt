@@ -188,3 +188,36 @@ Section#8
 		Program.cs
 			Configuring the UI project.
 			
+	NSwag
+		Integrates and relies heavily on swagger/OpenAPI
+		Offers capability
+			- Utilize swagger UI and Swagger generator
+			- Flexible code generation capabilities
+			
+		We can generate the code using NSwag Studio. It can generate code (For ex: Typed HttpClient)
+		We do not have to write the httpclient's code, models etc. All of it is done by NSwag for us. It reduces our code
+		More details - https://learn.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-nswag?view=aspnetcore-7.0&tabs=visual-studio
+		Downloading msi - https://github.com/RicoSuter/NSwag/releases
+		
+		Running API project. Took the swagger.json URL
+		Ran NSwag Studio
+		Selected these settings:
+			Runtime - Net60
+			Specification Url - Pasted the Swagger.json of API - Clicked on Create local Copy
+			Outputs - Selected CSharp Client
+			Specified Namespace where we want auto generated httpclient code to reside in.
+			Checked Generate interfaces for client classes
+			Changed JSON Library to SystemTextJson and clicked on Generate
+			This generated a Partial class ServiceClient in specified namespace.
+			In our case, we can see auto-generated code here - C:\Data\Pet Projects\AspNetCore-CleanArchitecture\HR.LeaveManagement.Clean\HR.LeaveManagement.BlazorUI\Services\Base\ServiceClient.cs
+			
+			About the auto generated code:
+			Contains partial interface IClient and partial class Client implementing that interface
+			
+		
+		Moving further, if we look at auto generated client's code, it expects HttpClient to come in from DI
+		So, inorder to make it standard, we're creating 1 more partial class and interface IClient and Client.
+		In IClient, we're getting HttpClient and we're setting it in a BaseHttpService class.
+		So, then, for each feature in our API i.e. LeaveType, LeaveAllocation and LeaveRequest, we're going to use strongly typed client
+		We're going to create 3 contracts ILeaveAllocationService, ILeaveRequestService and ILeaveTypeService and under services,
+		we're going to create their respective services. Inherit BaseHttpService and implement their respective contracts
