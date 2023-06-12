@@ -157,3 +157,34 @@ Section#7 - Testing:
 	Why use EFCore.InMemory?
 		It's a DB provider for EFCore to be used ONLY for testing purposes
 		Just to simulate test DB in memory for writing tests
+		
+Section#8
+	Blazor - .NET Single Page Application development Framework
+	NSwag and NSwagStudio - Generate API integration code
+	Configure JWT security
+		- Admin/Employee role
+	Setup UI for leave management features
+	
+	Added Blazor WebAssembly project
+	
+	Blazor Project structure
+		Properties
+			LaunchSettings.json
+				- Similar to .NET Core WebAPI. Can configure environment vars, startup settings etc. here
+		wwwroot
+			All css, js, images, static content to go here
+			Contains index.html which is like the base/master page of our app
+			<div id="app">
+				<!--Entire app gets rendered here-->
+			</div>
+		Pages
+			Individual pages. Pages have razor syntax
+		Shared
+			All shared components sit here. They can be reused in Pages
+		Imports.razor
+			Standalone file that contains using statements that'll be globally present throughout the UI
+		App.razor
+			Setup routing and different interceptors
+		Program.cs
+			Configuring the UI project.
+			
