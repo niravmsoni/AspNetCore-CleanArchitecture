@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveTypes
 {
-    public class GetLeaveTypesDetailsQueryHandler : IRequestHandler<GetLeaveTypesQuery,
+    public class GetLeaveTypesQueryHandler : IRequestHandler<GetLeaveTypesQuery,
         List<LeaveTypeDto>>
     {
         private readonly IMapper _mapper;
         private readonly ILeaveTypeRepository _leaveTypeRepository;
-        private readonly IAppLogger<GetLeaveTypeDetailsQueryHandler> _logger;
+        private readonly IAppLogger<GetLeaveTypesQueryHandler> _logger;
 
-        public GetLeaveTypesDetailsQueryHandler(IMapper mapper,
+        public GetLeaveTypesQueryHandler(IMapper mapper,
             ILeaveTypeRepository leaveTypeRepository,
-            IAppLogger<GetLeaveTypeDetailsQueryHandler> logger)
+            IAppLogger<GetLeaveTypesQueryHandler> logger)
         {
             this._mapper = mapper;
             this._leaveTypeRepository = leaveTypeRepository;

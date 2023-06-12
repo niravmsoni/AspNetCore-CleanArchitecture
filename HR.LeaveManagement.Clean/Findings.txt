@@ -123,4 +123,6 @@ Section#7 - Testing:
 		
 	Why use mocks?
 		For actual application, we'd be using DI to resolve the interfaces and maybe connect to DB or do calls to external endpoints
+		However for unit tests, we do not need those actuals to work. Hence we use mocks of those typess
 		
+		Ideally -> Better to just add Tests keyword against the class we're testing against
