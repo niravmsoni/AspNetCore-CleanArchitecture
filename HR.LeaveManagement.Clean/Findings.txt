@@ -367,4 +367,9 @@ Added new project in Infrastructure folder:
 		- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBsb2NhbGhvc3QuY29tIiwianRpIjoiNTVkN2E1YzYtN2QyZS00NWQ1LWI5NWUtNTlkNDRmY2Y5YzQ5IiwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QuY29tIiwidWlkIjoiOGU0NDU4NjUtYTI0ZC00NTQzLWE2YzYtOTQ0M2QwNDhjZGI5IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY4Njk4ODQxMywiaXNzIjoiSFJMZWF2ZW1hbmFnZW1lbnQiLCJhdWQiOiJIUkxlYXZlbWFuYWdlbWVudFVzZXIifQ.epQhhfPmbxsVw63TXKxWzV_LsqhEiPBVi98_nhc2XTk
 		- Upon decrypting it with JWT.IO, we see all claims we set in AuthService being returned back in the token.
 		
-	
+	Adding Authentication services to Blazor
+	- For newly added endpoints, we need to add HttpClients for the same.
+	- NSwagStudio import Swagger to ensure newly added AuthController's endpoints are captured by NSwag
+	- Click on Generate Files > So that it generates the newly added client's relevant code in previously saved location:
+	- BlazorUI > Services > Base > ServiceClient.cs
+	-> We do see ServiceClient modified.
