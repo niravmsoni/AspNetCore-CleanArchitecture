@@ -241,8 +241,130 @@ Section#9 - Securing API and UI
 Added new project in Infrastructure folder:
 	Project type:Class Library
 	Packages:
-		Microsoft.AspNetCore.Identity
+		Microsoft.AspNetCore.Identity/Microsoft.AspNetCore.Identity.UI
 		Microsoft.AspNetCore.Identity.EntityFrameworkCore
 		Microsoft.EntityFrameworkCore.SqlServer
 		Microsoft.EntityFrameworkCore.Tools
-		Microsoft.Extensions.Options.ConfigurationExtensions
+		Microsoft.Extensions.Options.ConfigurationExtensions - Options pattern
+		Microsoft.AspNetCore.Authentication.JwtBearer - Required for JwtBearer related code to work.
+		
+	Models:
+		-Created an ApplicationUser model by extending IdentityUser(Comes from Microsoft.AspNetCore.Identity)
+		- Added FirstName and LastName properties to it
+		
+	Services:
+	- IMP -> ApplicationUser -> This is going to be what represents the user of our application.(Through which we will sign-up/login) etc.
+		- Created 2 services:
+			AuthService
+			UserService
+		- AuthService
+			- Contains Login and Register methods (To be used by the sign up/sign in flow)
+			- Added required models to function in HR.LeaveManagement.Application.Models.Identity folder namely:
+				- AuthRequest/AuthResponse - Sign in flow
+				- RegistrationRequest/RegistrationResponse - Sign up flow
+				- Employee - Used for applying leaves
+				- JwTSettings - Option pattern - Read from appsettings.json
+		- Injecting UserManager and SignInManager into AuthService(Comes from Microsoft.AspNetCore.Identity) 
+		- and specified type as ApplicationUser
+		-Login
+			- Used FindByEmailAsync() to match user based on email
+			- Checking password of user.
+			- If valid user found, generating a JWT token using GenerateToken()
+			- GenerateToken()
+				- Getting claims against the user using _userManager.GetClaimsAsync(user)
+				- Getting roles against that user  using _userManager.GetRolesAsync(user)
+				- Adding custom claims and unioning them with user and role claims
+				- Creating Symmetric key
+				- Creating signing credentials(HMACSHA256)
+				- Newing up JwtSecurityToken object and returning it by setting:
+					Issuer - From AppSettings
+					Audience - From AppSettings
+					Claims - Claims formed above
+					Expires - From AppSettings
+					SignIngCredentials - Creds
+				
+			- Setting Token in AuthResponse using JwtSecurityTokenHandler().WriteToken
+		
+		- Register
+			- Creating ApplicationUser object
+			- Creating a new user in DB using _userManager.CreateAsync(user, request.Password)(Comes from Microsoft.AspNetCore.Identity)
+			- Adding Employee Role
+			- Returning response
+	DbContext:
+		- Creating a new DBContext namely HrLeaveManagementIdentityDbContext.
+		- We will inherit from IdentityDbContext<ApplicationUser> as compared to previously used DbContext when we configured
+		- EF's DBContext for normal DB interaction
+		- For seeding data into this IdentityDB, we can use configurations. Basically, any class implementing IEntityTypeConfiguration<T> will be executed
+		
+	Configuration:
+		- RoleConfiguration : IEntityTypeConfiguration<IdentityRole>
+			- Adding 2 default roles to DB: 
+				Employee
+				Administrator
+		- UserConfiguration : IEntityTypeConfiguration<ApplicationUser>
+			- Adding 2 applicationUsers to DB
+			
+		- UserRoleConfiguration : IEntityTypeConfiguration<IdentityUserRole<string>>
+			- Assigning 1 user admin's role and second user employee's role
+	IdentityServiceRegistration:
+		- Extension method to be exposed outside this class library.
+		- Adding DBContext(Same as Persistence project). Just change the name of DBContext to HrLeaveManagementIdentityDbContext
+		- For now, we're using the same DB's connection string
+		- We do not have any custom DBSets. So, all tables that are formed as a part of IdentityDbContext's in-built feature will be formed.
+		- services.AddIdentity<ApplicationUser, IdentityRole>()
+			.AddEntityFrameworkStores<Context>()
+			.AddDefaultTokenProviders()
+			- This line adds the reference to identity libraries. We're specifying the TUser and TRole to be ApplicationUser and IdentityRole
+			- We're also adding the EntityFrameworkStores to be whatever DB we've specified for storing/using the Identity related tables
+			- Add default token providers
+			
+		- Adding AuthService/UserService to be transient
+		- Adding Authentication
+			- Setting DefaultAuthenticationScheme and DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme(Using Microsoft.AspNetCore.Authentication.JwtBearer)
+			- In reality, that's just a "bearer" string
+			- AddJwtBearer()
+				- This is where we specify rules for evaluating/validating bearer token
+				- All rules sit in TokenValidationParameters option(Use Microsoft.IdentityModel.Tokens)
+				- We can decide whatever rules/properties we want to add our check on
+					- ValidateIssuerSigningKey = true => Validates the key is present in the token
+					- ValidateIssuer = true => Checks Issuer
+					- ValidateAudience = true => Checks Audience
+					- ValdiateLifetime = true => Checks Lifetime
+					- ClockSkew = TimeSpan.Zero => 
+						- If we do not set it explicitly, if the token expires at 10:00PM, it will be valid till 10:05PM.
+						- To deny this, we need to set the ClockSkew to TimeSpan.Zero
+					- ValidIssuer => In this, we need to provide the value we're wanting to validate. Comes from configuration -> JwtSettings:Issuer
+					- ValidAudience => Specifying the correct audience value we want to validate. Comes from configuration -> JwtSettings:Audience
+					- IssuerSigningKey => Creating Symmetric key by getting bytes from JwtSettings:Key
+	
+	-Jumping to API project to call this extension method and adding a new section JwtSettings in our appSettings file
+	- Calling the exposed serviceRegistration method.
+	
+	- IMP -> Adding UseAuthentication() middleware that will make the application aware that it needs to invoke the Authentication middleware
+	- Make sure to add it before UseAuthorization()
+	
+	- Adding a new controller namely AuthController
+		- Added 2 actions: Login and Register
+	- Scaffolding of our Identity DB to insert Identity related tables to our DB
+		- Jumping to PMConsole
+		- Selecting project as HR.LeaveManagement.Identity
+		- "add-migration InitialIdentityMigration"
+			- ERROR - Error since more than 1 DBContext found.
+		- "add-migration InitialIdentityMigration -Context HrLeaveManagementIdentityDbContext"
+			- Going forward, in case of more than 1 DBContexts, always specify the DBContext.
+			- So, even for normal migrations, we'd need to specify DbContext using -Context sign
+		- Migrations folder created under HR.LeaveManagement.Identity project.
+		- Running "update-database -Context HrLeaveManagementIdentityDbContext"
+		- Tables created in DB
+		
+	Running API
+		- Testing Login with this body:
+			{
+				"email": "admin@localhost.com",
+				"password": "P@ssword1"
+			}
+		- We see 200Ok with this token
+		- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBsb2NhbGhvc3QuY29tIiwianRpIjoiNTVkN2E1YzYtN2QyZS00NWQ1LWI5NWUtNTlkNDRmY2Y5YzQ5IiwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QuY29tIiwidWlkIjoiOGU0NDU4NjUtYTI0ZC00NTQzLWE2YzYtOTQ0M2QwNDhjZGI5IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTY4Njk4ODQxMywiaXNzIjoiSFJMZWF2ZW1hbmFnZW1lbnQiLCJhdWQiOiJIUkxlYXZlbWFuYWdlbWVudFVzZXIifQ.epQhhfPmbxsVw63TXKxWzV_LsqhEiPBVi98_nhc2XTk
+		- Upon decrypting it with JWT.IO, we see all claims we set in AuthService being returned back in the token.
+		
+	
