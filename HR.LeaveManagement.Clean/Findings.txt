@@ -372,4 +372,24 @@ Added new project in Infrastructure folder:
 	- NSwagStudio import Swagger to ensure newly added AuthController's endpoints are captured by NSwag
 	- Click on Generate Files > So that it generates the newly added client's relevant code in previously saved location:
 	- BlazorUI > Services > Base > ServiceClient.cs
-	-> We do see ServiceClient modified.
+	- We do see ServiceClient modified.
+	
+	- Under BlazorUI
+		- We created a new Contract IAuthenticationService
+		- Implementation in AuthenticationService
+		- For storing/retrieving token from local storage in browser, we're going to be using Blazor. Need this package -> Blazored.LocalStorage
+		- After installing, register it in Program.cs using builder.Services.AddBlazoredLocalStorage();
+		- Inject ILocalStorageService in BaseHttpService
+		- Write AuthenticateAsync, LogOutAsync and RegisterAsync methods and set/clear token from localStorage
+		- For setting values in local storage, we need an AuthenticationStateProvider.
+		- AuthenticationStateProvider will have the need to read the token to extract the claims from it. For reading token, we need JwtSecurityTokenHandler. Add this package(using System.IdentityModel.Tokens.Jwt)
+		- We will inherit this abstract class AuthenticationStateProvider and override this method "GetAuthenticationStateAsync"
+		- Added Login/Logout and token management code in AuthenticationStateProvider.
+		- Did registrations of DI 
+			builder.Services.AddAuthorizationCore();
+			builder.Services.AddScoped<AuthenticationStateProvider, ApiAuthenticationStateProvider>();
+			builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+		- Under BaseHttpClient, added a new protected method to add Bearer token
+		- In all calls that are being made from client services i.e. LeaveTypeService etc.
+		- Under API, decorated the controller with [Authorize] attribute
