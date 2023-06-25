@@ -124,7 +124,7 @@ namespace HR.LeaveManagement.Identity.Services
                issuer: _jwtSettings.Issuer,
                audience: _jwtSettings.Audience,
                claims: claims,
-               expires: DateTime.Now.AddMinutes(_jwtSettings.DurationInMinutes),
+               expires: DateTime.UtcNow.AddMinutes(_jwtSettings.DurationInMinutes),
                signingCredentials: signingCredentials);
 
             return jwtSecurityToken;

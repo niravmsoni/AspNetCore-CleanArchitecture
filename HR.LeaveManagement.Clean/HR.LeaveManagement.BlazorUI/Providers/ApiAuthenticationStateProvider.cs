@@ -30,7 +30,7 @@ namespace HR.LeaveManagement.BlazorUI.Providers
             var tokenContent = jwtSecurityTokenHandler.ReadJwtToken(savedToken);
 
             //Parsing token to see if the token is valid
-            if (tokenContent.ValidTo < DateTime.Now)
+            if (tokenContent.ValidTo < DateTime.UtcNow)
             {
                 //If invalid, remove token from storage and still return blank user in AuthenticationState
                 await localStorage.RemoveItemAsync("token");

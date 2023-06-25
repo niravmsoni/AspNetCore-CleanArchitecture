@@ -393,3 +393,14 @@ Added new project in Infrastructure folder:
 		- Under BaseHttpClient, added a new protected method to add Bearer token
 		- In all calls that are being made from client services i.e. LeaveTypeService etc.
 		- Under API, decorated the controller with [Authorize] attribute
+		
+	- Adding Authentication Logic to UI
+	- Added "@using Microsoft.AspNetCore.Components.Authorization" to global imports
+	- Under Index.razor, separated AuthorizedView and UnAuthorizedView to differentiate as to what users should see what info?
+		- Authorized USers to see LogOut button
+		- UnAuthorized users to see Login/Register button
+	- OnInitializedAsync() -> Meaning as soon as the page loads, we're making call to our custom AuthenticationStateProvider and checking what's the state of user/token etc.
+	- GoToLogin() and GoToRegister() are going to be separate components/razor pages which we will just redirect to in our code-behind
+	- Create simple Login/Register components with required textboxes/validations etc.
+	- Changes to Shared > NavMenu where we're showing different menu for logged-in vs non-logged-in users
+	- Added CascadingAuthenticationState in App.Razor so that entire routing takes the authentication state into effect.
