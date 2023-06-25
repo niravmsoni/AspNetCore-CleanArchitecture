@@ -404,3 +404,8 @@ Added new project in Infrastructure folder:
 	- Create simple Login/Register components with required textboxes/validations etc.
 	- Changes to Shared > NavMenu where we're showing different menu for logged-in vs non-logged-in users
 	- Added CascadingAuthenticationState in App.Razor so that entire routing takes the authentication state into effect.
+	
+Section#10 - Completing App Features
+	One good enhancement is when we send HTTP requests from our Blazor Client, earlier, we created a method to Add Bearer token everytime to the backend.
+	That was manual. So, to automate it, we can create an HttpMessageHandler namely JwtAuthorizationMessageHandler and add the header in the requests from there on.
+	This eradicates the need to manually add the bearer token on each request.
