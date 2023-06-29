@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
 using HR.LeaveManagement.Application.Contracts.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.UpdateLeaveType
 {
@@ -31,7 +26,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Commands.UpdateLeave
                 .MustAsync(LeaveTypeNameUnique)
                 .WithMessage("Leave type already exists");
             
-            this._leaveTypeRepository = leaveTypeRepository;
+            _leaveTypeRepository = leaveTypeRepository;
         }
 
         private async Task<bool> LeaveTypeMustExist(int id, CancellationToken arg2)

@@ -32,7 +32,7 @@ namespace HR.LeaveManagement.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<LeaveAllocationDetailsDto>> Get(int id)
         {
-            var leaveAllocation = await _mediator.Send(new GetLeaveAllocationDetailQuery { Id = id});
+            var leaveAllocation = await _mediator.Send(new GetLeaveAllocationDetailQuery { Id = id });
             return Ok(leaveAllocation);
         }
 
@@ -48,7 +48,7 @@ namespace HR.LeaveManagement.Api.Controllers
         }
 
         // PUT api/<LeaveAllocationsController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(400)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -1,12 +1,9 @@
-﻿namespace HR.LeaveManagement.BlazorUI.Contracts
+﻿using HR.LeaveManagement.BlazorUI.Services.Base;
+
+namespace HR.LeaveManagement.BlazorUI.Contracts
 {
-    public interface IAuthenticationService
+    public interface ILeaveAllocationService
     {
-        //Login
-        Task<bool> AuthenticateAsync(string email, string password);
-        //SignUp
-        Task<bool> RegisterAsync(string firstName, string lastName, string userName, string email, string password);
-        //LogOut
-        Task Logout();
+        Task<Response<Guid>> CreateLeaveAllocations(int leaveTypeId);
     }
 }

@@ -16,7 +16,7 @@ namespace HR.LeaveManagement.BlazorUI.Pages.LeaveTypes
         public int id { get; set; }
         public string Message { get; private set; }
 
-        LeaveTypeVM leaveType = new LeaveTypeVM();
+        LeaveTypeVM leaveType = new();
 
         protected async override Task OnParametersSetAsync()
         {

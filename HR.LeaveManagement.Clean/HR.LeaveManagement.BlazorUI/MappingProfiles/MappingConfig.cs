@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HR.LeaveManagement.BlazorUI.Models;
 using HR.LeaveManagement.BlazorUI.Models.LeaveAllocations;
 using HR.LeaveManagement.BlazorUI.Models.LeaveRequests;
 using HR.LeaveManagement.BlazorUI.Models.LeaveTypes;
@@ -15,8 +16,19 @@ namespace HR.LeaveManagement.BlazorUI.MappingProfiles
             CreateMap<CreateLeaveTypeCommand, LeaveTypeVM>().ReverseMap();
             CreateMap<UpdateLeaveTypeCommand, LeaveTypeVM>().ReverseMap();
 
-            CreateMap<LeaveRequestListDto, LeaveRequestVM>().ReverseMap();
-            CreateMap<LeaveRequestDetailsDto, LeaveRequestVM>().ReverseMap();
+            //Adding explicit ForMember declaration since there are differences in Data type. DateTime vs DateTimeOffset.
+            //If we don't do this AutoMapper will throw exceptions
+            CreateMap<LeaveRequestListDto, LeaveRequestVM>()
+                .ForMember(q => q.DateRequested, opt => opt.MapFrom(x => x.DateRequested.DateTime))
+                .ForMember(q => q.StartDate, opt => opt.MapFrom(x => x.StartDate.DateTime))
+                .ForMember(q => q.EndDate, opt => opt.MapFrom(x => x.EndDate.DateTime))
+                .ReverseMap();
+            
+            CreateMap<LeaveRequestDetailsDto, LeaveRequestVM>()
+                .ForMember(q => q.DateRequested, opt => opt.MapFrom(x => x.DateRequested.DateTime))
+                .ForMember(q => q.StartDate, opt => opt.MapFrom(x => x.StartDate.DateTime))
+                .ForMember(q => q.EndDate, opt => opt.MapFrom(x => x.EndDate.DateTime))
+                .ReverseMap();
             CreateMap<CreateLeaveRequestCommand, LeaveRequestVM>().ReverseMap();
             CreateMap<UpdateLeaveRequestCommand, LeaveRequestVM>().ReverseMap();
 
@@ -24,6 +36,8 @@ namespace HR.LeaveManagement.BlazorUI.MappingProfiles
             CreateMap<LeaveAllocationDetailsDto, LeaveAllocationVM>().ReverseMap();
             CreateMap<CreateLeaveAllocationCommand, LeaveAllocationVM>().ReverseMap();
             CreateMap<UpdateLeaveAllocationCommand, LeaveAllocationVM>().ReverseMap();
+
+            CreateMap<EmployeeVM, Employee>().ReverseMap();
         }
     }
 }

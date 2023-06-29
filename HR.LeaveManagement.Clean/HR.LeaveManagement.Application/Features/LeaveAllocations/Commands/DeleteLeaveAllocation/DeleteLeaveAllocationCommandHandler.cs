@@ -1,13 +1,7 @@
-﻿using AutoMapper;
-using HR.LeaveManagement.Application.Contracts.Persistence;
+﻿using HR.LeaveManagement.Application.Contracts.Persistence;
 using HR.LeaveManagement.Application.Exceptions;
 using HR.LeaveManagement.Domain;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Commands.DeleteLeaveAllocation
 {
@@ -29,8 +23,6 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Commands.Dele
 
             await _leaveAllocationRepository.DeleteAsync(leaveAllocation);
             return Unit.Value;
-
-
         }
     }
 }

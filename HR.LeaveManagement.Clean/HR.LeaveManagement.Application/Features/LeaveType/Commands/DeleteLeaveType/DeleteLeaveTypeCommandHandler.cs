@@ -13,7 +13,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveT
         public DeleteLeaveTypeCommandHandler(IMapper mapper,
             ILeaveTypeRepository leaveTypeRepository)
         {
-            this._leaveTypeRepository = leaveTypeRepository;
+            _leaveTypeRepository = leaveTypeRepository;
         }
 
         public async Task<Unit> Handle(DeleteLeaveTypeCommand request, CancellationToken cancellationToken)

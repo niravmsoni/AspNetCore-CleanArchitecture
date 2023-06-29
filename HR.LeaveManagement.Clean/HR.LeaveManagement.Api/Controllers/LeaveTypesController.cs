@@ -6,6 +6,8 @@ using HR.LeaveManagement.Application.Features.LeaveType.Queries.GetLeaveTypeDeta
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Security.Claims;
 
 namespace HR.LeaveManagement.Api.Controllers
 {
@@ -20,6 +22,7 @@ namespace HR.LeaveManagement.Api.Controllers
         {
             _mediator = mediator;
         }
+
         // GET: api/<LeaveTypesController>
         [HttpGet]
         public async Task<List<LeaveTypeDto>> Get()
@@ -32,12 +35,11 @@ namespace HR.LeaveManagement.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<LeaveTypeDetailsDto>> Get(int id)
         {
-            var leaveType = await _mediator.Send(new GetLeaveTypesDetailsQuery(id));
+            var leaveType = await _mediator.Send(new GetLeaveTypeDetailsQuery(id));
             return Ok(leaveType);
         }
 
         // POST api/<LeaveTypesController>
-        //Add ProducesResponseTypes for client to know what all are the HTTP Responses this action can return?
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -48,7 +50,7 @@ namespace HR.LeaveManagement.Api.Controllers
             return CreatedAtAction(nameof(Get), new { id = response });
         }
 
-        // PUT api/<LeaveTypesController>/5
+        // PUT api/<LeaveTypesController>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(400)]

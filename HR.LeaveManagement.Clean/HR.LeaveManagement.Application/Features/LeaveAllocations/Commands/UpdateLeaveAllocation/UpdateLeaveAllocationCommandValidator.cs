@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
 using HR.LeaveManagement.Application.Contracts.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Commands.UpdateLeaveAllocation
 {
@@ -18,15 +13,12 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Commands.Upda
             ILeaveAllocationRepository leaveAllocationRepository)
         {
             _leaveTypeRepository = leaveTypeRepository;
-            _leaveAllocationRepository = leaveAllocationRepository;
-
+            this._leaveAllocationRepository = leaveAllocationRepository;
             RuleFor(p => p.NumberOfDays)
-                .GreaterThan(0)
-                .WithMessage("{PropertyName} must be greater than {ComparisonValue}");
+                .GreaterThan(0).WithMessage("{PropertyName} must greater than {ComparisonValue}");
 
             RuleFor(p => p.Period)
-                .GreaterThanOrEqualTo(DateTime.Now.Year)
-                .WithMessage("{PropertyName} must be after {ComparisonValue}");
+                .GreaterThanOrEqualTo(DateTime.Now.Year).WithMessage("{PropertyName} must be after {ComparisonValue}");
 
             RuleFor(p => p.LeaveTypeId)
                 .GreaterThan(0)
@@ -36,7 +28,7 @@ namespace HR.LeaveManagement.Application.Features.LeaveAllocations.Commands.Upda
             RuleFor(p => p.Id)
                 .NotNull()
                 .MustAsync(LeaveAllocationMustExist)
-                .WithMessage("{PropertyName} must be present.");
+                .WithMessage("{PropertyName} must be present");
 
         }
 

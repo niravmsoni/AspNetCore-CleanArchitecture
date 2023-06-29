@@ -10,10 +10,9 @@ namespace HR.LeaveManagement.BlazorUI.Services
     {
         private readonly IMapper _mapper;
 
-        public LeaveTypeService(IClient client,
-            IMapper mapper, ILocalStorageService localStorageService) : base(client, localStorageService)
+        public LeaveTypeService(IClient client, IMapper mapper, ILocalStorageService localStorageService) : base(client, localStorageService)
         {
-            _mapper = mapper;
+            this._mapper = mapper;
         }
 
         public async Task<Response<Guid>> CreateLeaveType(LeaveTypeVM leaveType)
@@ -21,7 +20,6 @@ namespace HR.LeaveManagement.BlazorUI.Services
             try
             {
                 await AddBearerToken();
-                //Need to map from LeaveTypeVM to LeaveTypeCommand
                 var createLeaveTypeCommand = _mapper.Map<CreateLeaveTypeCommand>(leaveType);
                 await _client.LeaveTypesPOSTAsync(createLeaveTypeCommand);
                 return new Response<Guid>()
@@ -31,6 +29,7 @@ namespace HR.LeaveManagement.BlazorUI.Services
             }
             catch (ApiException ex)
             {
+
                 return ConvertAPIExceptions<Guid>(ex);
             }
         }
@@ -41,7 +40,7 @@ namespace HR.LeaveManagement.BlazorUI.Services
             {
                 await AddBearerToken();
                 await _client.LeaveTypesDELETEAsync(id);
-                return new Response<Guid> { Success = true };
+                return new Response<Guid>() { Success = true };
             }
             catch (ApiException ex)
             {
@@ -52,14 +51,13 @@ namespace HR.LeaveManagement.BlazorUI.Services
         public async Task<LeaveTypeVM> GetLeaveTypeDetails(int id)
         {
             await AddBearerToken();
-            var leaveTypes = await _client.LeaveTypesGETAsync(id);
-            return _mapper.Map<LeaveTypeVM>(leaveTypes);
+            var leaveType = await _client.LeaveTypesGETAsync(id);
+            return _mapper.Map<LeaveTypeVM>(leaveType);
         }
 
         public async Task<List<LeaveTypeVM>> GetLeaveTypes()
         {
             await AddBearerToken();
-            //LeaveTypes will be of LeaveTypeDTO. For converting it to LeaveTypeVM, we'll use AutoMapper
             var leaveTypes = await _client.LeaveTypesAllAsync();
             return _mapper.Map<List<LeaveTypeVM>>(leaveTypes);
         }
@@ -71,7 +69,10 @@ namespace HR.LeaveManagement.BlazorUI.Services
                 await AddBearerToken();
                 var updateLeaveTypeCommand = _mapper.Map<UpdateLeaveTypeCommand>(leaveType);
                 await _client.LeaveTypesPUTAsync(id.ToString(), updateLeaveTypeCommand);
-                return new Response<Guid> { Success = true };
+                return new Response<Guid>()
+                {
+                    Success = true,
+                };
             }
             catch (ApiException ex)
             {
