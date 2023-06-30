@@ -2,7 +2,7 @@
 The project follows a CLEAN ARCHITECTURE.
 
 Hierarchy:
-src
+- src
 	- API
 		- API(WebAPI Project)
 	- Core
@@ -14,7 +14,7 @@ src
 		- Identity(Class Library)
 	- UI
 		- BlazorUI(BlazorWebAssembly)
-test
+- test
 	- Unit(xUnit)
 	- Integration(xUnit)
 
