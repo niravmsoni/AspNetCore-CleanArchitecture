@@ -21,7 +21,7 @@ Hierarchy:
 
 The project uses the following technologies:
 
-- .NET Core (6/7/8)
+- .NET Core 6
 - CQRS
 - AutoMapper
 - Blazor
