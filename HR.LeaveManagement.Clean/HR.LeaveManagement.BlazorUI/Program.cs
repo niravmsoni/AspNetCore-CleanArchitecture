@@ -1,4 +1,5 @@
 using Blazored.LocalStorage;
+using Blazored.Toast;
 using HR.LeaveManagement.BlazorUI;
 using HR.LeaveManagement.BlazorUI.Contracts;
 using HR.LeaveManagement.BlazorUI.Handlers;
@@ -20,6 +21,9 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddTransient<JwtAuthorizationMessageHandler>();
 builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:7112"))
     .AddHttpMessageHandler<JwtAuthorizationMessageHandler>();
+
+//Added for Toast Notifications
+builder.Services.AddBlazoredToast();
 
 //Added for interacting with local storage to store/retrieve JWT Token
 builder.Services.AddBlazoredLocalStorage();

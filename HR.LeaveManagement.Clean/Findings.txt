@@ -409,3 +409,47 @@ Section#10 - Completing App Features
 	One good enhancement is when we send HTTP requests from our Blazor Client, earlier, we created a method to Add Bearer token everytime to the backend.
 	That was manual. So, to automate it, we can create an HttpMessageHandler namely JwtAuthorizationMessageHandler and add the header in the requests from there on.
 	This eradicates the need to manually add the bearer token on each request.
+	
+Section#11 - Value added features
+	ILogger - MEL -> If it's to be used in any projects apart from API project, we need to use this package:
+		Microsoft.Extensions.Logging.Abstractions
+		
+	Serilog
+		-> Persistent logging 
+		
+	Packages:
+		Serilog -> Required
+		Serilog.AspNetCore -> This will help plug into the default host logger
+		Serilog.Settings.Configuration -> Configure and read the settings from appSettings.json
+		Sinks = Destination
+			Serilog.Sinks.ApplicationInsights/.Seq/.Splunk etc.
+		
+	Serilog Settings:
+		MinimumLevel
+			- Configure Default Log Level
+			- Override levels for providers
+		WriteTo
+			- Takes in array.
+				- Need to pass Name and Args
+			
+	Setup:
+	builder.Host.Configuration((context, loggerConfig) => loggerConfig.WriteTo.Console()
+	.ReadFrom.Configuration(context.Configuration));	// This will refer to Serilog's section in appsettings.json
+	
+	Add middleware
+	app.UseSerilogRequestLogging();
+		
+	Added migration to DB
+	Injected userService to HrDatabaseContext and set the relevant fields
+	
+	Toast Notifications:
+	Package:
+		Blazored.Toast
+		
+	Register the service in Program.cs
+	builder.Services.AddBlazoredToast();
+	
+	Adding using in Global imports file
+	MainLayout
+	
+	LeaveTypes > Create.razor.cs > Injected IToastService

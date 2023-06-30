@@ -1,6 +1,8 @@
+using HR.LeaveManagement.Application.Contracts.Identity;
 using HR.LeaveManagement.Domain;
 using HR.LeaveManagement.Persistence.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 using Shouldly;
 
 namespace HR.LeaveManagement.Persistence.IntegrationTests
@@ -8,6 +10,7 @@ namespace HR.LeaveManagement.Persistence.IntegrationTests
     public class HrDatabaseContextTests
     {
         private readonly HrDatabaseContext _hrDatabaseContext;
+        private readonly Mock<IUserService> _userService;
 
         //Setup mockDB based on EFCore.InMemory db
         public HrDatabaseContextTests()
@@ -18,7 +21,9 @@ namespace HR.LeaveManagement.Persistence.IntegrationTests
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
 
-            _hrDatabaseContext = new HrDatabaseContext(dbOptions);
+            _userService = new Mock<IUserService>();
+
+            _hrDatabaseContext = new HrDatabaseContext(dbOptions, _userService.Object);
         }
 
         [Fact]
