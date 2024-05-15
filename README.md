@@ -15,8 +15,8 @@ Hierarchy:
 	  - UI
 		    - BlazorUI(BlazorWebAssembly)
 - test
-	  - Unit(xUnit)
-	  - Integration(xUnit)
+	   - Unit(xUnit)
+	   - Integration(xUnit)
 
 
 The project uses the following technologies:
