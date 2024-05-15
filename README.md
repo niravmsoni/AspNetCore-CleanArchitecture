@@ -3,20 +3,20 @@ The project follows a CLEAN ARCHITECTURE.
 
 Hierarchy:
 - src
-	- API
-		- API(WebAPI Project)
-	- Core
-		- Domain(Class Library)
-		- Application(Class Library)
-	- Infra
-		- Persistence(Class Library)
-		- Infrastructure(Class Library)
-		- Identity(Class Library)
-	- UI
-		- BlazorUI(BlazorWebAssembly)
+   - API
+		    - API(WebAPI Project)
+	  - Core
+		    - Domain(Class Library)
+		    - Application(Class Library)
+	  - Infra
+		    - Persistence(Class Library)
+		    - Infrastructure(Class Library)
+		    - Identity(Class Library)
+	  - UI
+		    - BlazorUI(BlazorWebAssembly)
 - test
-	- Unit(xUnit)
-	- Integration(xUnit)
+	  - Unit(xUnit)
+	  - Integration(xUnit)
 
 
 The project uses the following technologies:
